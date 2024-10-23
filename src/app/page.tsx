@@ -9,7 +9,7 @@ export default function Home() {
 
     useEffect(() => {
 
-        fetch('http://localhost:4000/create-checkout-session', {
+        fetch('api/create-checkout-session', {
             method: 'POST'
         })
             .then((response) => {
