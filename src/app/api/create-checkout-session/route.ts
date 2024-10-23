@@ -2,7 +2,7 @@ import MercadoPagoConfig, { Preference } from "mercadopago";
 
 const client = new MercadoPagoConfig({ accessToken: process.env.ACCESS_TOKEN_TEST || '' })
 
-export async function POST(request: Request) {
+export async function POST() {
 
     const preference = new Preference(client)
 
