@@ -6,7 +6,7 @@ export async function POST() {
 
     const preference = new Preference(client)
 
-    const response = await preference.create({
+    return preference.create({
         body: {
             items: [
                 {
@@ -16,8 +16,17 @@ export async function POST() {
                     unit_price: 25
                 }
             ],
+            back_urls: {
+                "success": "http://localhost:3000/feedback",
+                "failure": "http://localhost:3000/feedback",
+                "pending": "http://localhost:3000/feedback"
+            },
+            auto_return: "approved",
         }
     })
+        .then((response) => {
+            return Response.json(response.id)
+        })
+        .catch((error) => Response.json({ message: error.message }))
 
-    return Response.json({ ...response })
 }
