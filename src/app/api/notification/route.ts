@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
         type
     })
 
-    return new Response('Ok', {
-        status: 200
+    return Response.json({
+        message: 'Foi'
     })
 
 
