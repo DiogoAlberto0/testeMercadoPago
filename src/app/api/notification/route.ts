@@ -1,19 +1,10 @@
 
+export async function POST(request: Request) {
+    const res = await request.json()
 
-export async function POST(req: Request) {
+    console.log(res)
 
-
-    const res = await req.json()
-    const { type, data } = res;
-
-    console.log({
-        data,
-        type
+    return new Response('', {
+        status: 200
     })
-
-    return Response.json({
-        message: 'Foi'
-    })
-
-
 }
