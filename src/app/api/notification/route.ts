@@ -6,6 +6,7 @@ export async function POST(request: Request) {
 
     const client = new MercadoPagoConfig({ accessToken: 'APP_USR-561934009385227-102314-47f8b8a153264c10af90297c67ef5ca7-2055254442' })
 
+    console.log(res)
     switch (res.type) {
         case 'payment':
             const payment = await new Payment(client).get({ id: res.data.id })
