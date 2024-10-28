@@ -2,7 +2,7 @@ import MercadoPagoConfig, { Preference } from "mercadopago";
 
 const client = new MercadoPagoConfig({ accessToken: process.env.ACCESS_TOKEN_TEST || '' })
 
-export async function POST() {
+export async function GET() {
 
     const preference = new Preference(client)
 
@@ -22,10 +22,11 @@ export async function POST() {
                 "pending": "http://localhost:3000/feedback"
             },
             auto_return: "approved",
+            notification_url: "https://teste-mercado-pago.vercel.app/api/notification"
         }
     })
         .then((response) => {
-            return Response.json(response.id)
+            return Response.json(response.init_point)
         })
         .catch((error) => Response.json({ message: error.message }))
 
